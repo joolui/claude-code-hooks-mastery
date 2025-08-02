@@ -1,3 +1,14 @@
+# Changes
+
+- Added rime TTS to hooks/tts
+- Added rime to notification, stop and subagent_stop
+- Added rime to .env.sample
+    RIME_API_KEY=your_api_key_here
+  The following optional environment variables are available:  
+    RIME_GUIDANCE="<guide how the agent speaks>"
+    RIME_WHEN_TO_SPEAK="<tell the agent when to speak>"
+    RIME_VOICE="cove"
+
 # Claude Code Hooks Mastery
 
 [Claude Code Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) - Quickly master how to use Claude Code hooks to add deterministic (or non-deterministic) control over Claude Code's behavior. Plus learn about [Claude Code Sub-Agents](#claude-code-sub-agents) and the powerful [Meta-Agent](#the-meta-agent).
