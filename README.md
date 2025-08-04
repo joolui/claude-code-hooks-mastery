@@ -1,5 +1,6 @@
 # Changes
 
+### Rime integration
 - Added rime TTS to hooks/tts
 - Added rime to notification, stop and subagent_stop
 - Added rime to .env.sample
@@ -8,6 +9,42 @@
     RIME_GUIDANCE="<guide how the agent speaks>"
     RIME_WHEN_TO_SPEAK="<tell the agent when to speak>"
     RIME_VOICE="cove"
+
+### Google Cloud
+- Added GCloud TTS to hooks/tts
+- Added GCloud to .env.sample
+    - GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-service-account-key.json"
+    - GOOGLE_CLOUD_PROJECT_ID
+  The following optional environment variables are available:    
+    - GOOGLE_CLOUD_TTS_LANGUAGE (defaults to "en-US")
+    - GOOGLE_CLOUD_TTS_VOICE (defaults to "en-US-Journey-D")
+    - GOOGLE_CLOUD_TTS_GENDER (defaults to "NEUTRAL")
+    - GOOGLE_CLOUD_TTS_ENCODING (defaults to "MP3")
+
+  #### This sets up Application Default Credentials for APIs
+  gcloud auth application-default login
+
+  This will open a browser and authenticate you, then store credentials that the TTS script can use.
+
+  Alternative: Service Account (if you prefer JSON keys):
+
+  If you want to use a JSON service account key instead:
+
+  1. Create a service account in Google Cloud Console:
+    - Go to https://console.cloud.google.com/
+    - Navigate to "IAM & Admin" > "Service Accounts"
+    - Create a new service account
+    - Grant it "Text-to-Speech Client" role
+    - Create and download a JSON key
+  2. Use the JSON key:
+  export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-service-account-key.json"
+
+  Check your current authentication:
+
+  gcloud auth list
+  gcloud auth application-default print-access-token
+
+  The second command should return an access token if authentication is working.
 
 # Claude Code Hooks Mastery
 
